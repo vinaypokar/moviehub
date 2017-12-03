@@ -1,0 +1,57 @@
+<div style="width:500px;height:50%;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);position:absolute;left: 200px;top: 120px;">
+  <h4>Movie Name: </h4>{{name}}
+  <h4>Description: </h4>{{description}}
+  <h4>Year Released: </h4>{{year_released}}
+  <h4>Rating: </h4>{{rating}}
+  <h4>Actors: </h4>
+  <ul>
+    <li *ngFor="let actor of actors" (click)="getActorInfo(actor)">{{actor}}</li>
+  </ul>
+  <h4>Directors:</h4>
+  <ul>
+    <li *ngFor="let director of directors">{{director}}</li>
+  </ul>
+  <h4>Image URL: </h4>{{urlstring}}
+  <button style="position:relative;top:30px;left:150px" class="btn btn-primary" (click)="edit()">Edit</button>
+</div>
+
+
+<div *ngIf="show" style="width:600px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);position:absolute;left: 700px;top: 120px;">
+  <form (submit)="updateMovie()">
+  <div class="form-group">
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Name" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="description" name="description" placeholder="Description" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="number" [(ngModel)]="year_released" name="year_released" placeholder="Year Released" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="number" [(ngModel)]="rating" name="rating" placeholder="Rating" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="actors" name="actors" placeholder="Actors" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="directors" name="directors" placeholder="directors" class="form-control">
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="urlstring" name="urlstring" placeholder="Image URL" class="form-control">
+  </div>
+  <input style="position:relative;left:20px" type="submit" class="btn btn btn-success" value="Update">
+  <input style="position:relative;left:100px" class="btn btn btn-danger" value="Cancel" (click)="cancel()">
+</form>
+</div>
+
+
+<div *ngIf="showActor || showDirector" style="width:250px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);position:absolute;left: 700px;top: 120px;">
+  <h2 style="text-align: center;">Actor Details</h2>
+  <h4 style="position: relative;left: +20px;"> Name: </h4><div style="position: relative;left: +40px;">{{actorsinfo.name}}</div>
+  <h4 style="position: relative;left: +20px;">Age: </h4><div style="position: relative;left: +40px;">{{actorsinfo.age}}</div>
+  <h4 style="position: relative;left: +20px;">Gender: </h4><div style="position: relative;left: +40px;">{{actorsinfo.gender}}</div>
+<h4 style="position: relative;left: +20px;">Acted In: </h4>
+<ul>
+  <li *ngFor="let actin of actorsinfo.acted_in">{{actin}}</li>
+</ul>
+</div>

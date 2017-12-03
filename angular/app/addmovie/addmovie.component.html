@@ -1,0 +1,28 @@
+<div style="width:1050px;height:45%;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);position:absolute;left: 200px;top: 120px;">
+  <h4 style="position:relative;left: 450px;">Add Movie</h4>
+  <form (submit)="addMovie()">
+    <div class="form-group">
+      <input type="text" [(ngModel)]="name" name="name" placeholder="Name" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="description" name="description" placeholder="Description" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="number" [(ngModel)]="year_released" name="year_released" placeholder="Year Released" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="number" [(ngModel)]="rating" name="rating" placeholder="Rating" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="actor" name="actor" placeholder="Actors" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="director" name="director" placeholder="directors" class="form-control">
+    </div>
+    <div class="form-group">
+      <input type="text" [(ngModel)]="urlstring" name="urlstring" placeholder="Image URL" class="form-control">
+    </div>
+    <input style="position:absolute;left: 200px;" type="submit" class="btn btn btn-success" value="Add">
+    <input style="position:relative;left: 700px;" routerLink="/listmovies" class="btn btn btn-danger" value="Cancel">
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="container">
+  <div align="right">
+      <div class="">
+        <div class="form-group"  style="width:25%">
+            <input type="text" class="form-control" placeholder="Search.." [(ngModel)]='s' name="s" value=""> 
+        </div>
+      </div>
+    </div>
+  <div class="row">
+    <div class="col-xs-3" *ngFor="let movie of movies">
+      <a [routerLink]="['/movie',movie._id]">
+        <div class="image-container">
+          <img src="{{movie.urlstring}}" alt="{{movie.name}}" height="50%" width="50%" >
+          <div class="branch-name" title="{{movie.name}}">
+            {{movie.name}} 
+          </div>
+        </div>
+      </a>
+      <input type="button" class="btn btn-danger" value="X" (click)="deleteMovie(movie._id)">
+    </div>
+  </div>
+</div>
